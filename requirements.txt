@@ -1,0 +1,6 @@
+pandas==2.3.3
+xlwings==0.33.21
+matplotlib==3.10.6
+requests==2.32.5
+schedule==1.2.2
+bizdays==1.0.19

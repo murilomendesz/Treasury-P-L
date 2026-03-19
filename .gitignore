@@ -1,0 +1,8 @@
+*.log
+*.png
+*.tmp
+__pycache__/
+.ipynb_checkpoints/
+.claude/
+historico.csv
+~$*.xlsx

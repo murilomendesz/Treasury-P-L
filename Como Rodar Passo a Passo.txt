@@ -1,0 +1,167 @@
+============================================================
+   COMO RODAR O BOOK DE TESOURARIA — PASSO A PASSO
+   (Para quem nunca usou Python antes)
+============================================================
+
+Este guia vai te levar do zero até o programa rodando na sua
+máquina. Siga cada etapa na ordem. Não pule nenhuma.
+
+------------------------------------------------------------
+ETAPA 1 — INSTALAR O PYTHON
+------------------------------------------------------------
+
+1. Abra o navegador e acesse: https://www.python.org/downloads/
+
+2. Clique no botão amarelo grande "Download Python 3.x.x"
+   (o número exato pode variar, qualquer versão 3.10 ou
+   superior está ótimo).
+
+3. Abra o arquivo baixado (.exe).
+
+4. IMPORTANTE: Na primeira tela do instalador, marque a caixa
+   que diz "Add Python to PATH" (ela fica no rodapé da janela).
+   Se não marcar isso, nada vai funcionar.
+
+5. Clique em "Install Now" e aguarde.
+
+6. Quando aparecer "Setup was successful", clique em "Close".
+
+Para confirmar que funcionou:
+   - Pressione as teclas Windows + R ao mesmo tempo
+   - Digite: cmd   e pressione Enter
+   - Na janela preta que abrir, digite:
+       python --version
+   - Pressione Enter. Deve aparecer algo como: Python 3.13.0
+   Se apareceu, Python está instalado com sucesso.
+
+------------------------------------------------------------
+ETAPA 2 — BAIXAR OS ARQUIVOS DO PROJETO
+------------------------------------------------------------
+
+Você precisa ter estes arquivos todos na mesma pasta:
+
+   treasury.py
+   carteira_legado.xlsx
+   requirements.txt
+
+Se você recebeu esses arquivos por e-mail ou pendrive, crie
+uma pasta (por exemplo em Documentos) chamada "Treasury" e
+coloque todos os arquivos lá dentro.
+
+Se você clonou do GitHub, a pasta já está pronta.
+
+------------------------------------------------------------
+ETAPA 3 — ABRIR O TERMINAL NA PASTA DO PROJETO
+------------------------------------------------------------
+
+1. Abra o Explorador de Arquivos do Windows.
+
+2. Navegue até a pasta onde estão os arquivos (ex: Documentos\Treasury).
+
+3. Na barra de endereço do Explorer (onde fica escrito o
+   caminho da pasta), clique uma vez para selecionar tudo.
+
+4. Digite: cmd   e pressione Enter.
+   Uma janela preta vai abrir JÁ DENTRO da pasta correta.
+
+Você pode confirmar digitando:
+   dir
+e pressionando Enter. Deve aparecer treasury.py na lista.
+
+------------------------------------------------------------
+ETAPA 4 — INSTALAR AS BIBLIOTECAS NECESSÁRIAS
+------------------------------------------------------------
+
+Na janela preta (cmd) aberta na etapa anterior, digite
+exatamente o comando abaixo e pressione Enter:
+
+   pip install -r requirements.txt
+
+O computador vai baixar e instalar automaticamente tudo que
+o programa precisa (pandas, matplotlib, requests, etc.).
+
+Isso pode demorar alguns minutos. Aguarde aparecer a mensagem
+"Successfully installed..." antes de continuar.
+
+Se aparecer um erro dizendo que "pip" não foi reconhecido,
+tente este comando alternativo:
+
+   python -m pip install -r requirements.txt
+
+------------------------------------------------------------
+ETAPA 5 — FECHAR O EXCEL (IMPORTANTE!)
+------------------------------------------------------------
+
+O programa lê e escreve no arquivo carteira_legado.xlsx.
+Se o Excel estiver aberto com esse arquivo, o programa vai
+dar erro.
+
+Antes de rodar, feche o Excel completamente.
+
+------------------------------------------------------------
+ETAPA 6 — RODAR O PROGRAMA
+------------------------------------------------------------
+
+Na mesma janela preta (cmd), escolha uma das opções abaixo:
+
+OPCAO A — Rodar uma vez (modo normal):
+   python treasury.py
+
+   O programa vai buscar os dados do BACEN, calcular o P&L
+   da carteira e gerar os graficos. Aguarde a execução.
+
+OPCAO B — Rodar no modo agendado (atualiza todo dia as 09:05):
+   python treasury.py --scheduler
+
+   Neste modo o programa fica rodando em segundo plano e
+   executa sozinho todo dia de manha. Para parar, pressione
+   Ctrl + C na janela preta.
+
+------------------------------------------------------------
+ETAPA 7 — VER OS RESULTADOS
+------------------------------------------------------------
+
+Depois que o programa terminar de rodar, os seguintes
+arquivos serao criados/atualizados na pasta:
+
+   carteira_legado.xlsx  → planilha com P&L e marcacao
+   historico.csv         → historico de execucoes
+   grafico_pl.png        → grafico de P&L por titulo
+   grafico_dv01.png      → grafico de DV01
+   grafico_historico.png → grafico historico de P&L
+   treasury.log          → registro de tudo que aconteceu
+
+Abra o carteira_legado.xlsx no Excel para ver os resultados.
+
+------------------------------------------------------------
+PROBLEMAS COMUNS
+------------------------------------------------------------
+
+ERRO: "python nao e reconhecido como um comando"
+   → Voce esqueceu de marcar "Add Python to PATH" na
+     instalacao. Desinstale o Python e instale novamente,
+     desta vez marcando essa opcao.
+
+ERRO: "No module named pandas" (ou outro modulo)
+   → A etapa 4 nao foi concluida. Rode novamente:
+     pip install -r requirements.txt
+
+ERRO: "Permission denied" ou erro relacionado ao Excel
+   → Feche o Excel completamente (Etapa 5) e tente de novo.
+
+ERRO: "Failed to connect" ou erro de internet
+   → O programa precisa de conexao com a internet para
+     buscar dados do BACEN. Verifique sua conexao.
+
+O programa rodou mas nao apareceu nada de erro e nem resultado:
+   → Verifique o arquivo treasury.log — ele registra tudo,
+     inclusive erros silenciosos.
+
+------------------------------------------------------------
+PRECISA DE AJUDA?
+------------------------------------------------------------
+
+Contato do desenvolvedor:
+   Murilo Mendes — murilomnds99@gmail.com
+
+============================================================
